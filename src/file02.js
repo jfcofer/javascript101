@@ -13,12 +13,15 @@ const frameworks = [
   "Lit|28 de mayo de 2018|400,000|60%",
   "Alpine.js|2 de noviembre de 2019|300,000|70%",
   "Stimulus|6 de marzo de 2018|150,000|25%",
-  "Solid|5 de julio de 2021|250,000|80%"
+  "Solid|5 de julio de 2021|250,000|80%",
 ];
 
 /**
  * 1. Itere el arreglo frameworks.
  * Referencia: https://javascript.info/array#loops
+
+
+
  * 
  * 2. En cada iteración, toma una cadena del arreglo y divídela en partes usando el separador "|".
  *    Referencia: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
@@ -40,3 +43,18 @@ const frameworks = [
  *    para agregar una nueva fila con estos datos al cuerpo de la tabla HTML.
  */
 
+for (let index = 0; index < frameworks.length; index++) {
+  const element = frameworks[index];
+  let framework = element.split("|");
+  let frameworkName = framework[0].trim();
+  let releaseDate = framework[1].trim();
+  let usersName = framework[2].trim();
+  let popularityPercentage = framework[3].trim();
+  let frameworkObj = {
+    frameworkName,
+    releaseDate,
+    usersName,
+    popularityPercentage,
+  };
+  addRow(frameworkObj, "data-frameworks");
+}
